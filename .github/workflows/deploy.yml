@@ -1,4 +1,4 @@
-#/Sboard/.github/workflows/deloy.yml
+ #/Sboard/.github/workflows/deloy.yml
 # workflow의 이름
 name: Deploy
 
@@ -39,14 +39,14 @@ jobs:
         shell: bash
         
       # properties 파일일 경우
-      - name: copy Application.properties
-        run: echo "${{ secrets.APP_PROPERTIES }}" > ./src/main/resources/application.properties
-        shell: bash  
+      #- name: copy Application.properties
+      # run: echo "${{ secrets.APP_PROPERTIES }}" > ./src/main/resources/application.properties
+      # shell: bash
         
       # yml 파일일 경우 : yml 파일의 내용을 Base64로 인코딩해야됨(https://www.convertstring.com)
-      #- name: copy Application.yml
-      #  run: echo "${{ secrets.APP_PROPERTIES }}" > ./src/main/resources/application.properties
-      #  shell: bash
+      - name: copy Application.yml
+        run: echo "${{ secrets.APP_PROPERTIES }}" > ./src/main/resources/application.properties
+        shell: bash
         
       # gradle 권한 설정
       - name: Grant execute permission for gradlew
